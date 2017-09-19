@@ -8,8 +8,14 @@ Find unclosed tags in HTML source.
 
 Usage:
 ```
-$ ./unclosedTagFinder.py -f foo.html 
-The following elements are unclosed:
+$ ./unclosedTagFinder.py -i '<html></html>'
+
+Your HTML is perfectly matched. You're awesome!
+
+$ ./unclosedTagFinder.py -f foo.html
+
+The following tags are unclosed:
+
 {'<span class="bar">'}
 ```
 
