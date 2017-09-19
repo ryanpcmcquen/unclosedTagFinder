@@ -16,7 +16,7 @@ args = parser.parse_args()
 htmlFile = open(args.filename)
 html = htmlFile.read()
 tags = re.compile('<[^\!][^>]*>', flags=re.I | re.M)
-tagList = re.findall(tags, str(html))
+tagList = re.findall(tags, html)
 htmlFile.close()
 openingTagList = list(
     filter(
@@ -35,7 +35,7 @@ numberOfOpeningTags = len(openingTagList)
 numberOfClosingTags = len(closingTagList)
 
 filteredClosingTagList = list(
-    map(lambda str: re.sub('/', '', str), closingTagList)
+    map(lambda tag: re.sub('/', '', tag), closingTagList)
 )
 
 if numberOfOpeningTags == numberOfClosingTags:
