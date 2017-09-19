@@ -18,3 +18,8 @@ TODO:
 [ ] Improve command line commands and output.
 [ ] Give line numbers of unclosed tags.
 [ ] Fix code?
+
+---
+
+Thanks to the Wingware Pro IDE for making Python development even more fun!
+![Wingware!](https://wingware.com/images/wingware-button-200x89.png)
