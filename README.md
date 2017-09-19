@@ -23,7 +23,7 @@ TODO:
 - [ ] Accomodate multiple files.
 - [x] Accomodate user input.
 - [ ] Add a GUI.
-- [ ] Improve command line commands and output.
+- [x] Improve command line commands and output.
 - [ ] Give line numbers of unclosed tags.
 - [ ] Fix code?
 - [ ] Include unit tests.

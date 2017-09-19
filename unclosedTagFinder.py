@@ -14,7 +14,7 @@ parser.add_argument(
 parser.add_argument(
     '-i',
     '--input',
-    help='HTML text to parse (passed as a quote-delimited string).'
+    help='HTML text to parse (a quote-delimited string).'
 )
 args = parser.parse_args()
 if args.filename:
@@ -47,9 +47,12 @@ filteredClosingTagList = list(
 )
 
 if numberOfOpeningTags == numberOfClosingTags:
-    print('''
-        Your HTML is perfectly matched. You're awesome!
-    ''')
+    print()
+    print("Your HTML is perfectly matched. You're \033[1;32mawesome\033[1;m!")
+    print()
 else:
-    print('The following elements are unclosed:')
+    print()
+    print('The following tags are \033[1;41munclosed\033[1;m:')
+    print()
     print(set(openingTagList).difference(filteredClosingTagList))
+    print()
