@@ -26,6 +26,12 @@ else:
 tags = re.compile('<[^\!][^>]*>', flags=re.I | re.M)
 tagList = re.findall(tags, html)
 
+'''
+Filter out void elements:
+https://www.w3.org/TR/html/syntax.html#void-elements
+area, base, br, col, embed, hr, img, input, keygen, link, menuitem, meta, param, source, track, wbr
+'''
+
 openingTagList = list(
     filter(
         lambda tag: re.match('<[^/]', tag),
