@@ -8,9 +8,12 @@ The following elements are unclosed:
 {'<span class="bar">'}
 ```
 
+---
+
 TODO:
-[X] Read file input.
-[X] Accomodate tag names with attributes.
+
+[x] Read file input.
+[x] Accomodate tag names with attributes.
 [ ] Read remote files.
 [ ] Accomodate multiple files.
 [ ] Accomodate user input.
@@ -22,4 +25,5 @@ TODO:
 ---
 
 Thanks to the Wingware Pro IDE for making Python development even more fun!
+
 ![Wingware!](https://wingware.com/images/wingware-button-200x89.png)
