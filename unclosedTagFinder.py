@@ -11,13 +11,21 @@ parser.add_argument(
     '--filename',
     help='HTML file to parse.'
 )
+parser.add_argument(
+    '-i',
+    '--input',
+    help='HTML text to parse (passed as a quote-delimited string).'
+)
 args = parser.parse_args()
-
-htmlFile = open(args.filename)
-html = htmlFile.read()
+if args.filename:
+    htmlFile = open(args.filename)
+    html = htmlFile.read()
+    htmlFile.close()
+else:
+    html = args.input
 tags = re.compile('<[^\!][^>]*>', flags=re.I | re.M)
 tagList = re.findall(tags, html)
-htmlFile.close()
+
 openingTagList = list(
     filter(
         lambda tag: re.match('<[^/]', tag),
@@ -39,7 +47,9 @@ filteredClosingTagList = list(
 )
 
 if numberOfOpeningTags == numberOfClosingTags:
-    print('Your HTML is perfectly matched.')
+    print('''
+        Your HTML is perfectly matched. You're awesome!
+    ''')
 else:
     print('The following elements are unclosed:')
     print(set(openingTagList).difference(filteredClosingTagList))
