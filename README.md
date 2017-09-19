@@ -25,6 +25,7 @@ TODO:
 
 - [x] Read file input.
 - [x] Accomodate tag names with attributes.
+- [ ] Ignore self closing tags.
 - [ ] Read remote files.
 - [ ] Accomodate multiple files.
 - [x] Accomodate user input.
