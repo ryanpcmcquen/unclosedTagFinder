@@ -21,6 +21,7 @@ TODO:
 - [ ] Improve command line commands and output.
 - [ ] Give line numbers of unclosed tags.
 - [ ] Fix code?
+- [ ] Include unit tests.
 
 ---
 
