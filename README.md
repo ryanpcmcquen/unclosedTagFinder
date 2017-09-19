@@ -1,4 +1,7 @@
 # unclosedTagFinder
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
+[![GitHub issues](https://img.shields.io/github/issues/badges/shields.svg)]()
 Find unclosed tags in HTML source.
 
 Usage:
