@@ -1,7 +1,7 @@
 # unclosedTagFinder
 [![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/ryanpcmcquen/unclosedTagFinder/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/ryanpcmcquen/unclosedTagFinder.svg)](https://github.com/ryanpcmcquen/unclosedTagFinder/issues)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/ryanpcmcquen/unclosedTagFinder.svg?style=social)](https://twitter.com/intent/tweet?text=Wow, this is neat: https://github.com/ryanpcmcquen/unclosedTagFinder&url=%5Bobject%20Object%5D)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/ryanpcmcquen/unclosedTagFinder.svg?style=social)](https://twitter.com/intent/tweet?text=Wow, this is neat: https%3A%2F%2Fgithub.com%2Fryanpcmcquen%2FunclosedTagFinder&url=%5Bobject%20Object%5D)
 
 Find unclosed tags in HTML source.
 
