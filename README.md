@@ -6,7 +6,7 @@
 Find unclosed tags in HTML source.
 
 Usage:
-```py
+```
 $ ./unclosedTagFinder.py -f foo.html 
 The following elements are unclosed:
 {'<span class="bar">'}
