@@ -12,15 +12,15 @@ The following elements are unclosed:
 
 TODO:
 
-[x] Read file input.
-[x] Accomodate tag names with attributes.
-[ ] Read remote files.
-[ ] Accomodate multiple files.
-[ ] Accomodate user input.
-[ ] Add a GUI.
-[ ] Improve command line commands and output.
-[ ] Give line numbers of unclosed tags.
-[ ] Fix code?
+- [x] Read file input.
+- [x] Accomodate tag names with attributes.
+- [ ] Read remote files.
+- [ ] Accomodate multiple files.
+- [ ] Accomodate user input.
+- [ ] Add a GUI.
+- [ ] Improve command line commands and output.
+- [ ] Give line numbers of unclosed tags.
+- [ ] Fix code?
 
 ---
 
