@@ -27,18 +27,22 @@ Your HTML is perfectly matched. You're awesome!
 
 TODO:
 
+Important:
+
 - [x] Read file input.
 - [x] Accomodate tag names with attributes.
 - [x] Ignore self closing tags.
 - [x] Read remote files.
-- [ ] Accomodate multiple files.
 - [x] Accomodate user input.
-- [ ] Add a GUI.
 - [x] Improve command line commands and output.
 - [ ] Give line numbers of unclosed tags.
 - [ ] Improve error output.
-- [ ] Fix code?
 - [ ] Include unit tests.
+
+Maybe:
+- [ ] Add a GUI.
+- [ ] Accomodate multiple files.
+- [ ] Fix code?
 
 ---
 
