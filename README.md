@@ -25,9 +25,9 @@ Your HTML is perfectly matched. You're awesome!
 
 ---
 
-TODO:
+### TODO:
 
-Important:
+**Important**:
 
 - [x] Read file input.
 - [x] Accomodate tag names with attributes.
@@ -39,7 +39,7 @@ Important:
 - [ ] Improve error output.
 - [ ] Include unit tests.
 
-Maybe:
+**Maybe**:
 - [ ] Add a GUI.
 - [ ] Accomodate multiple files.
 - [ ] Fix code?
