@@ -6,7 +6,7 @@
 
 Find unclosed tags in HTML source.
 
-Usage:
+### Usage:
 ```
 $ ./unclosedTagFinder.py -i '<html></html>'
 
