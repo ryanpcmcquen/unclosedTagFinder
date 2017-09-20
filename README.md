@@ -36,6 +36,7 @@ TODO:
 - [ ] Add a GUI.
 - [x] Improve command line commands and output.
 - [ ] Give line numbers of unclosed tags.
+- [ ] Improve error output.
 - [ ] Fix code?
 - [ ] Include unit tests.
 

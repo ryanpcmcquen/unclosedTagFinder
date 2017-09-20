@@ -25,10 +25,10 @@ if args.file:
         htmlFile = urllib.request.urlopen(args.file)
     else:
         htmlFile = open(args.file)
-    # Technically, only need conversion
-    # to a string for remote files,
-    # but it doesn't hurt to do it
-    # for both.
+    # Technically, we only need
+    # conversion to a string for
+    # remote files, but it doesn't
+    # hurt to do it for both.
     html = str(htmlFile.read())
     htmlFile.close()
 else:
