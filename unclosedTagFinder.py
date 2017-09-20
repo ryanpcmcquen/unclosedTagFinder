@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import re
 import argparse
+import urllib.parse
+import urllib.request
 
 
 parser = argparse.ArgumentParser(
@@ -8,8 +10,8 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument(
     '-f',
-    '--filename',
-    help='HTML file to parse.'
+    '--file',
+    help='HTML file to parse (remote or local).'
 )
 parser.add_argument(
     '-i',
@@ -17,9 +19,17 @@ parser.add_argument(
     help='HTML text to parse (a quote-delimited string).'
 )
 args = parser.parse_args()
-if args.filename:
-    htmlFile = open(args.filename)
-    html = htmlFile.read()
+if args.file:
+    urlCheck = urllib.parse.urlparse(args.file)
+    if urlCheck.scheme or urlCheck.netloc:
+        htmlFile = urllib.request.urlopen(args.file)
+    else:
+        htmlFile = open(args.file)
+    # Technically, only need conversion
+    # to a string for remote files,
+    # but it doesn't hurt to do it
+    # for both.
+    html = str(htmlFile.read())
     htmlFile.close()
 else:
     html = args.input
