@@ -34,7 +34,7 @@ Your HTML is perfectly matched. You're awesome!
 - [x] Ignore self closing tags.
 - [x] Read remote files.
 - [x] Accomodate user input.
-- [x] Improve command line commands and output.
+- [x] Improve command line interface and output.
 - [ ] Give line numbers of unclosed tags.
 - [ ] Improve error output.
 - [ ] Include unit tests.
