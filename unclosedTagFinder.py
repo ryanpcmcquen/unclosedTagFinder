@@ -29,19 +29,28 @@ tagList = re.findall(tags, html)
 '''
 Filter out void elements:
 https://www.w3.org/TR/html/syntax.html#void-elements
-area, base, br, col, embed, hr, img, input, keygen, link, menuitem, meta, param, source, track, wbr
 '''
+voidElementsRegex = '</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
+devoidedTagList = list(
+    filter(
+        lambda tag: re.match(
+            voidElementsRegex,
+            tag
+        ),
+        tagList
+    )
+)
 
 openingTagList = list(
     filter(
         lambda tag: re.match('<[^/]', tag),
-        tagList
+        devoidedTagList
     )
 )
 closingTagList = list(
     filter(
         lambda tag: re.match('</', tag),
-        tagList
+        devoidedTagList
     )
 )
 
