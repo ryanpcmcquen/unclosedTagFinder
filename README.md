@@ -18,7 +18,7 @@ The following tags are unclosed:
 
 {'<span class="bar">'}
 
-$ ./unclosedTagFinder.py -f https://w3.org
+$ ./unclosedTagFinder.py -f https://whatwg.org
 
 Your HTML is perfectly matched. You're awesome!
 ```
