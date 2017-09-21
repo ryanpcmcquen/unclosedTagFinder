@@ -4,6 +4,14 @@ import argparse
 import urllib.parse
 import urllib.request
 
+htmlRegex = '<[^\!][^>]*>'
+# Void elements:
+# https://www.w3.org/TR/html/syntax.html#void-elements
+voidElementsRegex = '''
+</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
+'''
+openingTagRegex = '<[^/]'
+closingTagRegex = '</'
 
 parser = argparse.ArgumentParser(
     description='Check HTML source for unclosed tags.'
@@ -33,14 +41,9 @@ if args.file:
     htmlFile.close()
 else:
     html = args.input
-tags = re.compile('<[^\!][^>]*>', flags=re.I | re.M)
+tags = re.compile(htmlRegex, flags=re.I | re.M)
 tagList = re.findall(tags, html)
 
-'''
-Filter out void elements:
-https://www.w3.org/TR/html/syntax.html#void-elements
-'''
-voidElementsRegex = '</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
 devoidedTagList = list(
     filter(
         lambda tag: re.match(
@@ -53,13 +56,13 @@ devoidedTagList = list(
 
 openingTagList = list(
     filter(
-        lambda tag: re.match('<[^/]', tag),
+        lambda tag: re.match(openingTagRegex, tag),
         devoidedTagList
     )
 )
 closingTagList = list(
     filter(
-        lambda tag: re.match('</', tag),
+        lambda tag: re.match(closingTagRegex, tag),
         devoidedTagList
     )
 )
