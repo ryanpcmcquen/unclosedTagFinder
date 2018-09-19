@@ -7,9 +7,7 @@ import urllib.request
 htmlRegex = '<[^\!][^>]*>'
 # Void elements:
 # https://www.w3.org/TR/html/syntax.html#void-elements
-voidElementsRegex = '''
-</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
-'''
+voidElementsRegex = '</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
 openingTagRegex = '<[^/]'
 closingTagRegex = '</'
 
@@ -60,12 +58,15 @@ openingTagList = list(
         devoidedTagList
     )
 )
+
+
 closingTagList = list(
     filter(
         lambda tag: re.match(closingTagRegex, tag),
         devoidedTagList
     )
 )
+
 
 numberOfOpeningTags = len(openingTagList)
 numberOfClosingTags = len(closingTagList)
