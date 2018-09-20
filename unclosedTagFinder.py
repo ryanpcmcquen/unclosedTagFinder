@@ -3,7 +3,6 @@ import re
 import argparse
 import urllib.parse
 import urllib.request
-from collections import OrderedDict
 
 htmlRegex = r'\s*<[^\!][^>]*>'
 # Void elements:
