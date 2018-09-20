@@ -3,13 +3,14 @@ import re
 import argparse
 import urllib.parse
 import urllib.request
+from collections import OrderedDict
 
-htmlRegex = r'<[^\!][^>]*>'
+htmlRegex = r'\s*<[^\!][^>]*>'
 # Void elements:
 # https://www.w3.org/TR/html/syntax.html#void-elements
-voidElementsRegex = r'</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
-openingTagRegex = r'<[^/]'
-closingTagRegex = r'</'
+voidElementsRegex = r'\s*</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
+openingTagRegex = r'\s*<[^/]'
+closingTagRegex = r'\s*</'
 
 parser = argparse.ArgumentParser(
     description='Check HTML source for unclosed tags.'
@@ -37,43 +38,50 @@ if args.file:
     # conversion to a string for
     # remote files, but it doesn't
     # hurt to do it for both.
-    html = str(htmlFile.read())
+    htmlLines = enumerate(str(htmlFile.read()).splitlines(), 1)
     htmlFile.close()
 else:
-    html = args.input
-tags = re.compile(htmlRegex, flags=re.I | re.M)
-tagList = re.findall(tags, html)
+    htmlLines = enumerate(args.input.splitlines(), 1)
 
-devoidedTagList = list(
-    filter(
-        lambda tag: re.match(
-            voidElementsRegex,
-            tag
-        ),
-        tagList
+tags = re.compile(htmlRegex, flags=re.IGNORECASE | re.MULTILINE)
+
+tagDict = {
+    line_number: line for (
+        line_number, line
+    ) in htmlLines
+    if tags.search(line)
+}
+
+devoidedTagDict = {
+    line_number: tag for line_number, tag in tagDict.items()
+    if re.match(
+        voidElementsRegex,
+        tag
     )
-)
+}
 
-openingTagList = list(
-    filter(
-        lambda tag: re.match(openingTagRegex, tag),
-        devoidedTagList
+openingTagDict = {
+    line_number: tag for line_number, tag in devoidedTagDict.items()
+    if re.match(
+        openingTagRegex,
+        tag
     )
-)
+}
 
-closingTagList = list(
-    filter(
-        lambda tag: re.match(closingTagRegex, tag),
-        devoidedTagList
+closingTagDict = {
+    line_number: tag for line_number, tag in devoidedTagDict.items()
+    if re.match(
+        closingTagRegex,
+        tag
     )
-)
+}
 
-numberOfOpeningTags = len(openingTagList)
-numberOfClosingTags = len(closingTagList)
+numberOfOpeningTags = len(openingTagDict.items())
+numberOfClosingTags = len(closingTagDict.items())
 
-filteredClosingTagList = list(
-    map(lambda tag: re.sub('/', '', tag), closingTagList)
-)
+filteredClosingTagDict = {
+    line_number: re.sub('/', '', tag) for line_number, tag in closingTagDict.items()
+}
 
 if numberOfOpeningTags == numberOfClosingTags:
     print()
@@ -84,5 +92,8 @@ else:
     print()
     print('The following tags are \033[1;41munclosed\033[1;m\033[0m:')
     print()
-    print(set(openingTagList).difference(filteredClosingTagList))
+    print({
+        line_number: tag for line_number, tag in openingTagDict.items()
+        if tag not in filteredClosingTagDict.values()
+    })
     print()
