@@ -4,12 +4,12 @@ import argparse
 import urllib.parse
 import urllib.request
 
-htmlRegex = '<[^\!][^>]*>'
+htmlRegex = r'<[^\!][^>]*>'
 # Void elements:
 # https://www.w3.org/TR/html/syntax.html#void-elements
-voidElementsRegex = '</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
-openingTagRegex = '<[^/]'
-closingTagRegex = '</'
+voidElementsRegex = r'</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
+openingTagRegex = r'<[^/]'
+closingTagRegex = r'</'
 
 parser = argparse.ArgumentParser(
     description='Check HTML source for unclosed tags.'
@@ -24,7 +24,9 @@ parser.add_argument(
     '--input',
     help='HTML text to parse (a quote-delimited string).'
 )
+
 args = parser.parse_args()
+
 if args.file:
     urlCheck = urllib.parse.urlparse(args.file)
     if urlCheck.scheme or urlCheck.netloc:
@@ -59,14 +61,12 @@ openingTagList = list(
     )
 )
 
-
 closingTagList = list(
     filter(
         lambda tag: re.match(closingTagRegex, tag),
         devoidedTagList
     )
 )
-
 
 numberOfOpeningTags = len(openingTagList)
 numberOfClosingTags = len(closingTagList)
@@ -77,11 +77,12 @@ filteredClosingTagList = list(
 
 if numberOfOpeningTags == numberOfClosingTags:
     print()
-    print("Your HTML is perfectly matched. You're \033[1;32mawesome\033[1;m!")
+    print(
+        "Your HTML is perfectly matched. You're \033[1;32mawesome\033[1;m\033[0m!")
     print()
 else:
     print()
-    print('The following tags are \033[1;41munclosed\033[1;m:')
+    print('The following tags are \033[1;41munclosed\033[1;m\033[0m:')
     print()
     print(set(openingTagList).difference(filteredClosingTagList))
     print()
