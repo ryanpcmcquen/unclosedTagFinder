@@ -8,8 +8,8 @@ htmlRegex = r'\s*<[^\!][^>]*>'
 # Void elements:
 # https://www.w3.org/TR/html/syntax.html#void-elements
 voidElementsRegex = r'\s*</?(?!area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)'
-openingTagRegex = r'\s*<[^/]'
-closingTagRegex = r'\s*</'
+openingTagRegex = r'.*<[^/]'
+closingTagRegex = r'.*</'
 
 parser = argparse.ArgumentParser(
     description='Check HTML source for unclosed tags.'

@@ -14,11 +14,15 @@ $ ./unclosedTagFinder.py -i '<html></html>'
 
 Your HTML is perfectly matched. You're awesome!
 
-$ ./unclosedTagFinder.py -f foo.html
+$ ./unclosedTagFinder.py -f good_foo.html
+
+Your HTML is perfectly matched. You're awesome!
+
+$ ./unclosedTagFinder.py -f bad_foo.html
 
 The following tags are unclosed:
 
-{'<span class="bar">'}
+{7: '    <span class="bar">Foo'}
 
 $ ./unclosedTagFinder.py -f https://whatwg.org
 
