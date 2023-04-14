@@ -22,7 +22,8 @@ $ ./unclosedTagFinder.py -f bad_foo.html
 
 The following tags are unclosed:
 
-{7: '    <span class="bar">Foo'}
+7     <span class="bar">Foo
+
 
 $ ./unclosedTagFinder.py -f https://whatwg.org
 
