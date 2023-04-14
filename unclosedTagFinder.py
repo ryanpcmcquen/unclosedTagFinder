@@ -96,5 +96,5 @@ else:
         if tag not in filteredClosingTagDict.values()
     }
     for key, value in unclosedTagsDict.items():
-        print(key, value)
+        print(key, ': ', value)
     print()
