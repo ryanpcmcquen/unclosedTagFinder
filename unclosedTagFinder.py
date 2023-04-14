@@ -91,8 +91,10 @@ else:
     print()
     print('The following tags are \033[1;41munclosed\033[1;m\033[0m:')
     print()
-    print({
+    unclosedTagsDict = {
         line_number: tag for line_number, tag in openingTagDict.items()
         if tag not in filteredClosingTagDict.values()
-    })
+    }
+    for key, value in unclosedTagsDict.items():
+        print(key, value)
     print()
